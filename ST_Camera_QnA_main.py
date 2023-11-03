@@ -3,13 +3,22 @@ from PIL import Image
 import google.generativeai as palm
 from docx import Document
 from docx.enum.text import WD_BREAK
-import docx2pdf
+# import docx2pdf
 import streamlit as st
 import time
+import subprocess
 
 docx_file = "QnA_AI.docx"
 pdf_file = "QnA_AI.pdf"
 #files_path = "C:/Users/shaik/OneDrive/Desktop/Pyweek2023/extraprojects/"
+
+
+
+def docx_to_pdf(docx_file, pdf_file):
+    cmd = ['libreoffice', '--convert-to', 'pdf', docx_file, '--outdir', pdf_file]
+    subprocess.run(cmd)
+
+
 
 def perform_ocr(image_path):
     try:
@@ -102,8 +111,8 @@ def main():
     print("Document created: QnA_AI.docx")
 
     print("converting to pdf")
-
-    docx2pdf.convert(docx_file, pdf_file)
+    docx_to_pdf(docx_file, pdf_file)
+    #docx2pdf.convert(docx_file, pdf_file)
     #print full path
     print("pdf created: ", pdf_file)
 

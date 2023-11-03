@@ -7,8 +7,6 @@ from docx.enum.text import WD_BREAK
 import streamlit as st
 import time
 import subprocess
-import io
-import docx
 
 docx_file = "QnA_AI.docx"
 pdf_file = "QnA_AI.pdf"
@@ -16,9 +14,9 @@ pdf_file = "QnA_AI.pdf"
 
 
 
-# def docx_to_pdf(docx_file, pdf_file):
-#     cmd = ['libreoffice', '--convert-to', 'pdf', docx_file, '--outdir', pdf_file]
-#     subprocess.run(cmd)
+def docx_to_pdf(docx_file, pdf_file):
+    cmd = ['libreoffice', '--convert-to', 'pdf', docx_file, '--outdir', pdf_file]
+    subprocess.run(cmd)
 
 
 
@@ -68,22 +66,6 @@ def create_document(questions, answers):
     pdf_file = "QnA_AI.pdf"
     doc.save(docx_file)
 
-    f = open('QnA_AI.docx', 'rb')
-    doc_download = docx.Document(f)
-    f.close()
-
-    bio = io.BytesIO()
-    doc_download.save(bio)
-
-    if doc_download:
-        st.download_button(
-            label="Click here to download",
-            data=bio.getvalue(),
-            file_name="QnA_AI.docx",
-            mime="docx"
-        )
-    
-
 
 def main():
     st.title("AI Assistant")
@@ -128,9 +110,8 @@ def main():
     create_document(question_text, answers)
     print("Document created: QnA_AI.docx")
 
-
     print("converting to pdf")
-    #docx_to_pdf(docx_file, pdf_file)
+    docx_to_pdf(docx_file, pdf_file)
     #docx2pdf.convert(docx_file, pdf_file)
     #print full path
     print("pdf created: ", pdf_file)

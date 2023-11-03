@@ -65,6 +65,9 @@ def create_document(questions, answers):
     docx_file = "QnA_AI.docx"
     pdf_file = "QnA_AI.pdf"
     doc.save(docx_file)
+    #display this docx file in streamlit
+    with open('QnA_AI.docx', 'rb') as f:
+        st.download_button('Download Docx', f, file_name='QnA_AI.docx')
 
 
 def main():
@@ -92,7 +95,7 @@ def main():
 
     #wait for 2 seconds
     print("waiting..")
-    time.sleep(2)
+    # time.sleep(2)
     print("woke")
     # Step 1: Perform OCR
     question_text = perform_ocr("cap.jpg")
@@ -111,7 +114,7 @@ def main():
     print("Document created: QnA_AI.docx")
 
     print("converting to pdf")
-    docx_to_pdf(docx_file, pdf_file)
+    #docx_to_pdf(docx_file, pdf_file)
     #docx2pdf.convert(docx_file, pdf_file)
     #print full path
     print("pdf created: ", pdf_file)

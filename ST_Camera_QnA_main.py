@@ -72,7 +72,7 @@ def create_document(questions, answers):
 
 def main():
     st.title("AI Assistant")
-    st.write("Take a pic and upload here: ")
+    st.write("Take a pic of a Question Paper (previous years obv) and upload here: ")
     # run = st.button('Run', key='button1')
     # capture = st.button('Capture', key='button2')
     # FRAME_WINDOW = st.image([])
@@ -86,7 +86,7 @@ def main():
     #         break
     # camera.release()
     img = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
-    time.sleep(5)
+    time.sleep(4)
     if img is not None:
         image = Image.open(img)
         st.image(image, caption='Uploaded Image.', use_column_width=True)

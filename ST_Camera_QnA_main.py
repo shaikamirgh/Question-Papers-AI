@@ -67,7 +67,7 @@ def create_document(questions, answers):
     doc.save(docx_file)
     #display this docx file in streamlit
     with open('QnA_AI.docx', 'rb') as f:
-        st.download_button('Download Docx', f, file_name='QnA_AI.docx')
+        st.download_button('Download Docx with Answers', f, file_name='QnA_AI.docx')
 
 
 def main():

@@ -10,6 +10,7 @@ import subprocess
 
 docx_file = "QnA_AI.docx"
 pdf_file = "QnA_AI.pdf"
+folder_path = 'img_data/'
 #files_path = "C:/Users/shaik/OneDrive/Desktop/Pyweek2023/extraprojects/"
 
 
@@ -91,18 +92,27 @@ def main():
         image = Image.open(img)
         st.image(image, caption='Uploaded Image.', use_column_width=True)
         print(type(image))
-        image.save('cap.png')
-
+        image.save('capture.png')
+        
+        timestamp = int(time.time())
+        file_extension = image.format.lower()
+        file_path = f'{folder_path}{timestamp}.{file_extension}'
+        image.save(file_path)
+    else:
+        image = Image.open('default.png')
+        image.save('capture.png')
+        
 
     #wait for 2 seconds
     print("waiting..")
     # time.sleep(2)
     print("woke")
     # Step 1: Perform OCR
-    question_text = perform_ocr("cap.png")
+    question_text = perform_ocr("capture.png")
     print(question_text)
-    st.write("Scroll down to Download the AI Generated QnA docx file. (PDF version coming soon In Sha' Allah 😉)")
-    st.write("The questions detected are: \n", question_text)
+    st.subheader("Scroll down to Download the AI Generated QnA docx file. (PDF version coming soon In Sha' Allah 😉)")
+    #st.write("Scroll down to Download the AI Generated QnA docx file. (PDF version coming soon In Sha' Allah 😉)")
+    st.write("\n\nThe questions detected are: \n\n", question_text)
 
     print("--------------------------")
     # Step 2: Get answers

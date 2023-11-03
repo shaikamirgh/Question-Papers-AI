@@ -4,5 +4,5 @@ pillow
 pytesseract
 regex
 google-generativeai
-docx
+python-docx
 docx2pdf

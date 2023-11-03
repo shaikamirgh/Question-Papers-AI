@@ -130,7 +130,7 @@ def main():
 
 
     print("converting to pdf")
-    # docx_to_pdf(docx_file, pdf_file)
+    #docx_to_pdf(docx_file, pdf_file)
     #docx2pdf.convert(docx_file, pdf_file)
     #print full path
     print("pdf created: ", pdf_file)

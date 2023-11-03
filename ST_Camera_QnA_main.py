@@ -110,13 +110,15 @@ def main():
     # Step 1: Perform OCR
     question_text = perform_ocr("capture.png")
     print(question_text)
-    st.subheader("Scroll down to Download the AI Generated QnA docx file. (PDF version coming soon In Sha' Allah 😉)")
+    st.subheader("Scroll down to Download the AI Generated QnA docx file.")
+    st.write("\nPDF version coming soon In Sha' Allah 😉\n")
     #st.write("Scroll down to Download the AI Generated QnA docx file. (PDF version coming soon In Sha' Allah 😉)")
     st.write("\n\nThe questions detected are: \n\n", question_text)
 
     print("--------------------------")
     # Step 2: Get answers
     print("Getting answers...")
+    st.subheader("Generating answers...")
     answers = get_answers(question_text)
     print(answers)
     st.write("\n\nThe Answers generated are: \n", answers)

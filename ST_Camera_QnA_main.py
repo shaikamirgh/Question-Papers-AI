@@ -101,7 +101,7 @@ def main():
     # Step 1: Perform OCR
     question_text = perform_ocr("cap.png")
     print(question_text)
-    st.write("Scroll down to Download the AI Generated QnA docx file. (PDF version coming soon In Sha' Allah)")
+    st.write("Scroll down to Download the AI Generated QnA docx file. (PDF version coming soon In Sha' Allah 😉)")
     st.write("The questions detected are: \n", question_text)
 
     print("--------------------------")

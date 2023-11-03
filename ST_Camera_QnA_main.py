@@ -4,7 +4,6 @@ import google.generativeai as palm
 from docx import Document
 from docx.enum.text import WD_BREAK
 import docx2pdf
-import cv2
 import streamlit as st
 import time
 

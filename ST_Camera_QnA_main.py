@@ -14,9 +14,9 @@ pdf_file = "QnA_AI.pdf"
 
 
 
-def docx_to_pdf(docx_file, pdf_file):
-    cmd = ['libreoffice', '--convert-to', 'pdf', docx_file, '--outdir', pdf_file]
-    subprocess.run(cmd)
+# def docx_to_pdf(docx_file, pdf_file):
+#     cmd = ['libreoffice', '--convert-to', 'pdf', docx_file, '--outdir', pdf_file]
+#     subprocess.run(cmd)
 
 
 
@@ -86,11 +86,12 @@ def main():
     #         break
     # camera.release()
     img = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
+    time.sleep(5)
     if img is not None:
         image = Image.open(img)
         st.image(image, caption='Uploaded Image.', use_column_width=True)
         print(type(image))
-        image.save('cap.png')
+        image.save('cap.jpg')
 
 
     #wait for 2 seconds
@@ -100,14 +101,14 @@ def main():
     # Step 1: Perform OCR
     question_text = perform_ocr("cap.jpg")
     print(question_text)
-    st.write("The questions detected are: ", question_text)
+    st.write("The questions detected are: \n", question_text)
 
     print("--------------------------")
     # Step 2: Get answers
     print("Getting answers...")
     answers = get_answers(question_text)
     print(answers)
-    st.write("The Answers generated are: ", answers)
+    st.write("\n\nThe Answers generated are: \n", answers)
     print("--------------------------")
     # Step 3: Create a Word document
     create_document(question_text, answers)

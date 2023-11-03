@@ -68,7 +68,7 @@ def create_document(questions, answers):
     pdf_file = "QnA_AI.pdf"
     doc.save(docx_file)
 
-    f = open('Analysis.docx', 'rb')
+    f = open('QnA_AI.docx', 'rb')
     doc_download = docx.Document(f)
     f.close()
 

@@ -91,7 +91,7 @@ def main():
         image = Image.open(img)
         st.image(image, caption='Uploaded Image.', use_column_width=True)
         print(type(image))
-        image.save('cap.jpg')
+        image.save('cap.png')
 
 
     #wait for 2 seconds
@@ -99,7 +99,7 @@ def main():
     # time.sleep(2)
     print("woke")
     # Step 1: Perform OCR
-    question_text = perform_ocr("cap.jpg")
+    question_text = perform_ocr("cap.png")
     print(question_text)
     st.write("The questions detected are: \n", question_text)
 

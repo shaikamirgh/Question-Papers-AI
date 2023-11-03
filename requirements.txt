@@ -5,4 +5,5 @@ pytesseract
 regex
 google-generativeai
 python-docx
+io
 docx2pdf

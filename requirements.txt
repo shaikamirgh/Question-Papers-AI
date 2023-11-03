@@ -3,3 +3,7 @@ numpy
 pillow
 pytesseract
 regex
+google-generativeai
+docx
+PIL
+docx2pdf

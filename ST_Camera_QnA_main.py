@@ -99,7 +99,7 @@ def main():
         file_path = f'{folder_path}{timestamp}.{file_extension}'
         image.save(file_path)
     else:
-        image = Image.open('\img_data\capture.png')
+        image = Image.open('\img_data\default.png')
         image.save('\img_data\capture.png')
         
 

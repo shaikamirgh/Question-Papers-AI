@@ -108,7 +108,7 @@ def main():
     # time.sleep(2)
     print("woke")
     # Step 1: Perform OCR
-    question_text = perform_ocr("capture.png")
+    question_text = perform_ocr('/img_data/capture.png')
     print(question_text)
     st.subheader("Scroll down to Download the AI Generated QnA docx file.")
     st.write("\nPDF version coming soon In Sha' Allah 😉\n")

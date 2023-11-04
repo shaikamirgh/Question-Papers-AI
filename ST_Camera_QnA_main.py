@@ -92,15 +92,15 @@ def main():
         image = Image.open(img)
         st.image(image, caption='Uploaded Image.', use_column_width=True)
         print(type(image))
-        image.save('/img_data/capture.png')
+        image.save('img_data/capture.png')
         
         timestamp = int(time.time())
         file_extension = image.format.lower()
         file_path = f'{folder_path}{timestamp}.{file_extension}'
         image.save(file_path)
     else:
-        image = Image.open('/img_data/default.png')
-        image.save('/img_data/capture.png')
+        image = Image.open('img_data/default.png')
+        image.save('img_data/capture.png')
         
 
     #wait for 2 seconds

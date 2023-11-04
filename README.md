@@ -18,7 +18,9 @@ https://question-papers-ai.streamlit.app/
 ![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/capture.png)
 
 ## Output Document with Answers
-![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/capture.png)
+![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/Demo/ai_qp-demo_img1.jpeg)
+![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/Demo/ai_qp-demo_img2.jpeg)
+
 ## Features
 
 - Light/dark mode

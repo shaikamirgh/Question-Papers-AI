@@ -13,13 +13,6 @@ Just a pic of the question paper and upload it! voila! Download a document with 
 ## Live on Cloud
 https://question-papers-ai.streamlit.app/
 
-## Screenshots
-### Upload a pic like this one
-![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/capture.png)
-
-## Output Document with Answers
-![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/Demo/ai_qp-demo_img1.jpeg)
-![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/Demo/ai_qp-demo_img2.jpeg)
 
 ## Features
 
@@ -30,8 +23,15 @@ https://question-papers-ai.streamlit.app/
 
 
 ## 🔗 Links
+## connect with me to talk about crazy project ideas or just a hi!
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](http://amirbe.me/)
-
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shaik-amir/)
 
 
+## Screenshots
+### Upload a pic like this one
+![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/capture.png)
+
+## Output Document with Answers
+![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/Demo/ai_qp-demo_img1.jpeg)
+![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/Demo/ai_qp-demo_img2.jpeg)

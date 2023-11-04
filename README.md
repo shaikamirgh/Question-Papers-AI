@@ -30,7 +30,7 @@ https://question-papers-ai.streamlit.app/
 
 ## Screenshots
 ### Upload a pic like this one
-![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/capture.png)
+![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/img_data/capture.png)
 
 ## Output Document with Answers
 ![App Screenshot](https://github.com/shaikamirgh/Question-Papers-AI/blob/main/Demo/ai_qp-demo_img1.jpeg)

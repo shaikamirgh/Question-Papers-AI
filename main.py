@@ -6,7 +6,20 @@ from docx.enum.text import WD_BREAK
 # import docx2pdf
 import streamlit as st
 import time
-import subprocess
+#import subprocess
+from fpdf import FPDF
+
+#add tessaract path to environment variables
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+pdf = FPDF('P', 'mm', 'Letter')
+pdf.set_margins(15, 19, 10)
+pdf.set_auto_page_break(True, 20)
+pdf.add_page()
+
+pdf.add_font("Arial", "", "fonts/arial.ttf", uni=True)
+
+pdf.set_font("Arial", "", 16)
 
 docx_file = "QnA_AI.docx"
 pdf_file = "QnA_AI.pdf"
@@ -125,9 +138,10 @@ def main():
     st.write("\n\nThe Answers generated are: \n", answers)
     print("--------------------------")
     # Step 3: Create a Word document
+    pdf.multi_cell(0, 10, answers, align='C')
     create_document(question_text, answers)
 
-
+    
 
     print("Document created: QnA_AI.docx")
 
@@ -135,7 +149,11 @@ def main():
     #docx_to_pdf(docx_file, pdf_file)
     #docx2pdf.convert(docx_file, pdf_file)
     #print full path
+    pdf.output(pdf_file)
     print("pdf created: ", pdf_file)
+        #display this docx file in streamlit
+    with open('QnA_AI.docx', 'rb') as f:
+        st.download_button('Download PDF with Answers', f, file_name='QnA_AI.pdf')
 
 if __name__ == '__main__':
     main()

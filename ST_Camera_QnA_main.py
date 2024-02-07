@@ -86,7 +86,7 @@ def main():
     st.title("AI Assistant")
     st.write("Take a pic of a Question Paper (previous years obv) and upload here: ")
     img = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
-    time.sleep(0.4)
+    time.sleep(0.8)
     if img is not None:
         image = Image.open(img)
         st.image(image, caption='Uploaded Image.', use_column_width=True)

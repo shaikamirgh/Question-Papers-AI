@@ -85,20 +85,8 @@ def create_document(questions, answers):
 def main():
     st.title("AI Assistant")
     st.write("Take a pic of a Question Paper (previous years obv) and upload here: ")
-    # run = st.button('Run', key='button1')
-    # capture = st.button('Capture', key='button2')
-    # FRAME_WINDOW = st.image([])
-    # camera = cv2.VideoCapture(0)
-    # while run:
-    #     _, frame = camera.read()
-    #     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    #     FRAME_WINDOW.image(frame)
-    #     if capture:
-    #         cv2.imwrite('cap.jpg', frame)
-    #         break
-    # camera.release()
     img = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
-    time.sleep(1)
+    time.sleep(0.4)
     if img is not None:
         image = Image.open(img)
         st.image(image, caption='Uploaded Image.', use_column_width=True)
@@ -114,11 +102,6 @@ def main():
         st.image(image, caption='Default Image.', use_column_width=True)
         image.save('img_data/capture.png')
         
-
-    #wait for 2 seconds
-    print("waiting..")
-    # time.sleep(2)
-    print("woke")
     # Step 1: Perform OCR
     question_text = perform_ocr('img_data/capture.png')
     print(question_text)
@@ -126,8 +109,8 @@ def main():
     st.write("\nPDF version coming soon In Sha' Allah 😉\n")
     #st.write("Scroll down to Download the AI Generated QnA docx file. (PDF version coming soon In Sha' Allah 😉)")
     st.write("\n\nThe questions detected are: \n\n", question_text)
-
     print("--------------------------")
+
     # Step 2: Get answers
     print("Getting answers...")
     st.subheader("Generating answers...")
@@ -135,18 +118,28 @@ def main():
     print(answers)
     st.write("\n\nThe Answers generated are: \n", answers)
     print("--------------------------")
+
     # Step 3: Create a Word document
     create_document(question_text, answers)
-
-
-
     print("Document created: QnA_AI.docx")
-
     print("converting to pdf")
-    #docx_to_pdf(docx_file, pdf_file)
-    #docx2pdf.convert(docx_file, pdf_file)
-    #print full path
     print("pdf created: ", pdf_file)
 
+    # Step 4: Display additional images
+    st.subheader("Additional Sample Papers: ")
+    sample_img1="img_data\default1.jpg"
+    sample_img2="img_data\cap.png"
+    with open(sample_img1, "rb") as file1, open(sample_img2, "rb") as file2:
+        image1 = Image.open(file1)
+        image2 = Image.open(file2)
+
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image(image1, caption='Sample Image 1', use_column_width=True)
+        with col2:
+            st.image(image2, caption='Sample Image 2', use_column_width=True)
+
+        # st.subheader("Scroll down to Download the AI Generated QnA docx file.")
+  
 if __name__ == '__main__':
     main()

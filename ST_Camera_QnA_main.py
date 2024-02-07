@@ -128,8 +128,8 @@ def main():
 
     # Step 4: Display additional images
     st.subheader("Additional Sample Papers: ")
-    sample_img1="img_data\default1.jpg"
-    sample_img2="img_data\cap.png"
+    sample_img1="img_data/default1.jpg"
+    sample_img2="img_data/cap.png"
     with open(sample_img1, "rb") as file1, open(sample_img2, "rb") as file2:
         image1 = Image.open(file1)
         image2 = Image.open(file2)

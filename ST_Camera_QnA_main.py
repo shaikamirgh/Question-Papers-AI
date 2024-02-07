@@ -106,7 +106,7 @@ def main():
     question_text = perform_ocr('img_data/capture.png')
     print(question_text)
     st.subheader("Scroll down to Download the AI Generated QnA docx file.")
-    st.write("\nPDF version coming soon In Sha' Allah 😉\n")
+    
     #st.write("Scroll down to Download the AI Generated QnA docx file. (PDF version coming soon In Sha' Allah 😉)")
     st.write("\n\nThe questions detected are: \n\n", question_text)
     print("--------------------------")
@@ -117,6 +117,7 @@ def main():
     answers = get_answers(question_text)
     print(answers)
     st.write("\n\nThe Answers generated are: \n", answers)
+    st.write("\nPDF version coming soon In Sha' Allah 😉\n")
     print("--------------------------")
 
     # Step 3: Create a Word document

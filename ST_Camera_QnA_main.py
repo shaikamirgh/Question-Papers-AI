@@ -41,8 +41,8 @@ def get_answers(question_text):
         <Ans:> <Answer>
 
         sample output:
-        1. What is the name of the capital of India?
-        Ans: New Delhi
+        1. What is the difference between a constructor and a method??
+        Ans: The main difference between a constructor and a method is that a constructor is called when an object is created, while a method is called after an object has been created.
 
         (two new lines space for next question)
 
@@ -68,8 +68,19 @@ def create_document(questions, answers):
     doc.save(docx_file)
     #display this docx file in streamlit
     with open('QnA_AI.docx', 'rb') as f:
-        st.download_button('Download Docx with Answers', f, file_name='QnA_AI.docx')
+        st.download_button('Download Docx with Answers', f, file_name='QnA_AI.docx', key='docx_download_button')
+    # Inject JavaScript to automatically click the download link
+    # js_code = """
+    # <script>
+    # document.addEventListener("DOMContentLoaded", function() {
+    #     const downloadLink = document.getElementById("docx_download_button").getElementsByTagName("a")[0];
+    #     downloadLink.click();
+    # });
+    # </script>
+    # """
+    # st.markdown(js_code, unsafe_allow_html=True)
 
+    return docx_file, pdf_file
 
 def main():
     st.title("AI Assistant")

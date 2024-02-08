@@ -84,7 +84,7 @@ def create_document(questions, answers):
 
 def main():
     st.title("AI Assistant")
-    st.write("Take a pic of a Question Paper (previous years obv) and upload here: ")
+    st.write("Take a pic of a Previous Question Paper and upload here: ")
     img = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
     time.sleep(0.8)
     if img is not None:
@@ -117,7 +117,7 @@ def main():
     answers = get_answers(question_text)
     print(answers)
     st.write("\n\nThe Answers generated are: \n", answers)
-    st.write("\nPDF version coming soon In Sha' Allah 😉\n")
+    st.write("\nStay tuned for PDF version\n")
     print("--------------------------")
 
     # Step 3: Create a Word document

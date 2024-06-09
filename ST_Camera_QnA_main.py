@@ -7,6 +7,8 @@ from docx.enum.text import WD_BREAK
 import streamlit as st
 import time
 import subprocess
+from streamlit_paste_button import paste_image_button as pbutton
+
 
 docx_file = "QnA_AI.docx"
 pdf_file = "QnA_AI.pdf"
@@ -85,25 +87,33 @@ def create_document(questions, answers):
 def main():
     st.title("AI Assistant")
     st.write("Take a pic of a Previous Question Paper and upload here: ")
+
+    paste_result = pbutton("📋 Paste an image")
     img = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
     time.sleep(0.8)
-    if img is not None:
+
+    if paste_result.image_data is not None:
+        paste_result.image_data.save('img_data/pasted_image.png')   
+        question_text = perform_ocr('img_data/pasted_image.png')
+
+    elif img is not None:
         image = Image.open(img)
         st.image(image, caption='Uploaded Image.', use_column_width=True)
         print(type(image))
         image.save('img_data/capture.png')
-        
         timestamp = int(time.time())
         file_extension = image.format.lower()
         file_path = f'{folder_path}{timestamp}.{file_extension}'
         image.save(file_path)
+        question_text = perform_ocr('img_data/capture.png')
+        
     else:
         image = Image.open('img_data/default1.jpg')
         st.image(image, caption='Default Image.', use_column_width=True)
         image.save('img_data/capture.png')
-        
+        question_text = perform_ocr('img_data/capture.png')
     # Step 1: Perform OCR
-    question_text = perform_ocr('img_data/capture.png')
+    
     print(question_text)
     st.subheader("Scroll down to Download the AI Generated QnA docx file.")
     

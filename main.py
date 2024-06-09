@@ -8,6 +8,8 @@ import streamlit as st
 import time
 #import subprocess
 from fpdf import FPDF
+from streamlit_paste_button import paste_image_button as pbutton
+
 
 #add tessaract path to environment variables
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -99,6 +101,10 @@ def main():
     #         cv2.imwrite('cap.jpg', frame)
     #         break
     # camera.release()
+    paste_result = pbutton("📋 Paste an image")
+    if paste_result.image_data is not None:
+        paste_result.image_data.save('img_data/capture.png')   
+
     img = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
     time.sleep(1)
     if img is not None:

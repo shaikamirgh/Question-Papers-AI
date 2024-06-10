@@ -6,3 +6,4 @@ regex
 google-generativeai
 python-docx
 docx2pdf
+streamlit_paste_button

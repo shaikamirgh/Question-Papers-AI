@@ -87,7 +87,7 @@ def create_document(questions, answers):
 def main():
     st.title("AI Assistant")
     st.write("Take a pic of a Previous Question Paper and upload here: ")
-    st.write("Or just paste a screenshot from your clipboard here: ")
+    st.write("Or just paste a screenshot from your clipboard 😉 ")
     paste_result = pbutton("📋 Paste an image")
     img = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
     time.sleep(0.8)

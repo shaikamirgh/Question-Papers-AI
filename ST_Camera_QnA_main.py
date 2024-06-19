@@ -94,6 +94,7 @@ def main():
 
     if paste_result.image_data is not None:
         paste_result.image_data.save('img_data/pasted_image.png')   
+        st.image(paste_result.image_data, caption='Pasted Image.', use_column_width=True)
         question_text = perform_ocr('img_data/pasted_image.png')
 
     elif img is not None:
